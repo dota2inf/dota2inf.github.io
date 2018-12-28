@@ -92,7 +92,6 @@ class Modal extends React.PureComponent {
     }
     _items=()=>{
         let {data:{data:{dname,img,desc,attrib,cost,lore,qual}},abilities,data} = this.props
-        console.log(this.props.data.data);
         return <div className="items">
                     <div className="title">{dname}</div>
                     <hr/>
@@ -107,8 +106,6 @@ class Modal extends React.PureComponent {
                      
                     </div>
                     <hr/>
-                    {console.log(desc)}
-                    {console.log(desc==="")}
                     {desc!==""?<div className="desc" dangerouslySetInnerHTML={{__html: desc}} />:<div className="desc" dangerouslySetInnerHTML={{__html: lore}} />}
                     
                     
