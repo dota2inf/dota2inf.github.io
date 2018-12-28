@@ -16,7 +16,7 @@ class Position_Items extends React.PureComponent {
 	}
   	render() {
 		let {data} = this.props;
-		//console.log('render heroes');
+		console.log('render items position');
 		return (
 			<div className="Position" onClick={this.modal}>
 				<div className="HeroesItems">
