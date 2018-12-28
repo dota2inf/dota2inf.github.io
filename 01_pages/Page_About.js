@@ -40,7 +40,7 @@ class Page_About extends React.PureComponent {
 	}
 
 	componentDidMount() { 
-		modalClose();
+		this.props.modalClose();
 	}
 	
   	render() {

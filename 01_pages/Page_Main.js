@@ -9,7 +9,7 @@ class Page_Main extends React.PureComponent {
 		
 	};
 	componentDidMount() { 
-		modalClose();
+		this.props.modalClose();
 	}
 
   	render() {

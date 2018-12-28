@@ -14,8 +14,8 @@ class Page_Content extends React.PureComponent {
 	}
 
 
-	componentDidMount() { 
-		modalClose();
+	componentDidMount() {
+		this.props.modalClose();
 	}
   	render() {
 		let {reducer, loadNews, loadHeroes, loadItems} = this.props;
