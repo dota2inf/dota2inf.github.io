@@ -22,7 +22,7 @@ class Page_About extends React.PureComponent {
 			},
 			{
 				title:'Кроссбраузерность и адаптив проверено на:',
-				arr:['PC (chrome, chrome-46, opera, ie-11, firefox)','mac (chrome)','iOS (chrome)','android (chrome)']
+				arr:['PC (chrome, chrome-46, opera, ie-11, firefox)','mac (chrome, safari, firefox)','iOS (safari, chrome)','android (chrome)']
 			},
 			{
 				title:'Коммуникация',
