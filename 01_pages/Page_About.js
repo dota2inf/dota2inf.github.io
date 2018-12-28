@@ -18,15 +18,15 @@ class Page_About extends React.PureComponent {
 			},
 			{
 				title:'Навигация',
-				arr:['подключен react-router-dom (но на github pages запрещено переход по урлу) на локальной сборке работает нормально','навигаиця в меню фильтра']
+				arr:['подключен react-router-dom (но на github pages запрещен переход по урлу) в локальной сборке работает нормально','навигаиця в меню фильтра']
 			},
 			{
-				title:'Кроссбраузерность и адаптив проверено на:',
-				arr:['PC (chrome, chrome-46, opera, ie-11, firefox)','mac (chrome, safari, firefox)','iOS (safari, chrome)','android (chrome)']
+				title:'Кроссбраузерность и адаптив, проверено на:',
+				arr:['PC (chrome, chrome-46, opera, ie-11, firefox)','mac (chrome, safari, firefox )','iOS (safari, chrome)','android (chrome)']
 			},
 			{
 				title:'Коммуникация',
-				arr:['для хранения данных используется redux','используется кросс-доменный запрос и данных']
+				arr:['для хранения данных используется redux','используется кросс-доменный запрос данных']
 			},
 			{
 				title:'Сборка',
@@ -34,7 +34,7 @@ class Page_About extends React.PureComponent {
 			},
 			{
 				title:'Трудности',
-				arr:['анимация фильтра написана без использования внешних библиотек']
+				arr:['Сложно было реализовать анимацию фильтра (написана без использования внешних библиотек)']
 			},
 		]
 	}
