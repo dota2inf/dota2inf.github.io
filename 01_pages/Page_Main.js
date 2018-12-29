@@ -3,6 +3,8 @@ import { NavLink } from 'react-router-dom';
 import './Page_Main.scss';
 import {connect} from "react-redux";
 import {modalClose} from "../redux/actions";
+import {GlassHoc} from '../hoc/GlassHoc';
+
 class Page_Main extends React.PureComponent {
 	
 	state = {
@@ -33,4 +35,4 @@ class Page_Main extends React.PureComponent {
 
 
 export default connect((state) => ({}),
-{modalClose})(Page_Main);
+{modalClose})(GlassHoc(Page_Main));

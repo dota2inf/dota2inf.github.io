@@ -44,13 +44,14 @@ class Page_About extends React.PureComponent {
 	}
 	
   	render() {
-		
+		let rand = Math.floor(Math.random() * (2 - 0)) + 0;
+		console.log(rand );
 		return (
 			
 			<div className="Page_About">
 				<div className="container">
 					<div className="row">
-						<div className="image col-12"><div><img src="./04_images/ward.gif"/></div></div>
+						<div className={rand?"image-ward col-12":"image-cur col-12"}><div><img src={rand?"./04_images/ward.gif":"./04_images/cur.gif"}/></div></div>
 						<div className="title col-12"><div>About</div></div>
 						<div className="col-12"><hr/></div>
 						<div className="col-12 content">

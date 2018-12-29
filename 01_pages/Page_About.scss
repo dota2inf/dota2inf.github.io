@@ -5,9 +5,15 @@
     .image{
         display: flex;
         justify-content: center;
-        img{
+        &-ward{
+            @extend .image;
             margin-top: -64px;
             width: 100%;
+        }
+        &-cur{
+            @extend .image;
+            width: 100%;
+            padding-bottom: 50px;
         }
     }
     .title{
