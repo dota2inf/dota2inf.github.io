@@ -32,7 +32,12 @@ module.exports = {
   module: {
     rules: [
 		{
-			test: /\.js$/,
+      test: /\.js$/,
+      //для react-virtualized
+      //исключаем обработку babel loader'ом 
+      exclude: [
+        /node_modules[\\/]react-virtualized/,
+      ],
 			use: {
 				loader: "babel-loader"
 		}

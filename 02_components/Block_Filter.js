@@ -2,6 +2,9 @@ import React from 'react';
 
 import './Block_Filter.scss';
 
+import { List, WindowScroller } from 'react-virtualized';
+import ReactResizeDetector from 'react-resize-detector';
+
 import {connect} from "react-redux";
 import {loadNews,loadHeroes,loadItems} from "../redux/actions";
 
@@ -37,9 +40,11 @@ class Block_Filter extends React.PureComponent {
 
 		//пред состояние кнопки 3
 		prevBut3: '1',
-		prevBut2: ''
+		prevBut2: '',
 
-
+		//resizer
+		height: 0,
+		width: 0,
 	};
 	
 	//если true - значит идет анимация
@@ -203,16 +208,17 @@ class Block_Filter extends React.PureComponent {
 	_contentRender=()=>{
 		let {sort,e3status,status,loadingN,loadingH,loadingI,LoadedN,LoadedH,LoadedI,curBtn3} = this.state;
 		let {news, items, heroes} = this.props;
-		
+		let arr = [];
 		
 		//NEWS
 		if(status[1]==='N'){
 			let newsArr = news.data;
 			let result = [];
+			
 
 			//filter - latest to oldest
 			if(sort==="1"){
-				let arr = newsArr.sort((a, b)=> {
+				arr = newsArr.sort((a, b)=> {
 					if (a.date > b.date) {
 						return -1;
 					}
@@ -221,13 +227,11 @@ class Block_Filter extends React.PureComponent {
 					}
 					return 0;		
 				});
-				for(let i=0;i<arr.length;i++){
-					result.push(<Position_News key={arr[i].key}  data={arr[i]}/>);
-				}
+				
 			}
 			//filter - oldest to latest
 			else if(sort==="2"){
-				let arr = newsArr.sort((a, b)=> {
+				arr = newsArr.sort((a, b)=> {
 					if (a.date > b.date) {
 						return 1;
 					}
@@ -236,13 +240,11 @@ class Block_Filter extends React.PureComponent {
 					}
 					return 0;		
 				});
-				for(let i=0;i<arr.length;i++){
-					result.push(<Position_News key={arr[i].key}  data={arr[i]}/>);
-				}
+				
 			}
 			//filter - filter a-z
 			else if(sort==="3"){
-				let arr = newsArr.sort((a, b)=> {
+				arr = newsArr.sort((a, b)=> {
 					if (a.title.toLowerCase().trim() > b.title.toLowerCase().trim()) {
 						return 1;
 					}
@@ -251,13 +253,11 @@ class Block_Filter extends React.PureComponent {
 					}
 					return 0;		
 				});
-				for(let i=0;i<arr.length;i++){
-					result.push(<Position_News key={arr[i].key}  data={arr[i]}/>);
-				}
+			
 			}
 			//filter - filter z-a
 			else if(sort==="4"){
-				let arr = newsArr.sort((a, b)=> {
+				arr = newsArr.sort((a, b)=> {
 					if (a.title.toLowerCase().trim() > b.title.toLowerCase().trim()) {
 						return -1;
 					}
@@ -266,13 +266,10 @@ class Block_Filter extends React.PureComponent {
 					}
 					return 0;		
 				});
-				for(let i=0;i<arr.length;i++){
-					result.push(<Position_News key={arr[i].key}  data={arr[i]}/>);
-				}
+			
 			}
 			
 			
-			return <React.Fragment>{this._blockButtons(status.slice(2))}<div className={"content"+status.slice(2)+" e3-"+e3status}>{result}</div></React.Fragment>
 		}
 		//HEROES
 		else if(status[1]==='H'){
@@ -290,14 +287,11 @@ class Block_Filter extends React.PureComponent {
 					}
 					return 0;		
 				});
-				let arr = [];
+				
 				for(let j=0;j<preSort.length;j++){
 					if(preSort[j].atk=== "melee"){
 						arr.push(preSort[j]);
 					}
-				}
-				for(let i=0;i<arr.length;i++){
-					result.push(<Position_Heroes key={arr[i].key}  data={arr[i]}/>);
 				}	
 			}
 			//filter - range only
@@ -311,19 +305,16 @@ class Block_Filter extends React.PureComponent {
 					}
 					return 0;		
 				});
-				let arr = [];
+				
 				for(let j=0;j<preSort.length;j++){
 					if(preSort[j].atk=== "ranged"){
 						arr.push(preSort[j]);
 					}
 				}
-				for(let i=0;i<arr.length;i++){
-					result.push(<Position_Heroes key={arr[i].key} data={arr[i]}/>);
-				}
 			}
 			//filter - filter a-z
 			else if(sort==="3"){
-				let arr = heroesArr.sort((a, b)=> {
+				arr = heroesArr.sort((a, b)=> {
 					if (a.name.toLowerCase().trim() > b.name.toLowerCase().trim()) {
 						return 1;
 					}
@@ -332,13 +323,10 @@ class Block_Filter extends React.PureComponent {
 					}
 					return 0;		
 				});
-				for(let i=0;i<arr.length;i++){
-					result.push(<Position_Heroes key={arr[i].key}  data={arr[i]}/>);
-				}
 			}
 			//filter - filter z-a
 			else if(sort==="4"){
-				let arr = heroesArr.sort((a, b)=> {
+				arr = heroesArr.sort((a, b)=> {
 					if (a.name.toLowerCase().trim() > b.name.toLowerCase().trim()) {
 						return -1;
 					}
@@ -347,11 +335,7 @@ class Block_Filter extends React.PureComponent {
 					}
 					return 0;		
 				});
-				for(let i=0;i<arr.length;i++){
-					result.push(<Position_Heroes key={arr[i].key}  data={arr[i]}/>);
-				}
-			}
-			return <React.Fragment>{this._blockButtons(status.slice(2))}<div className={"content"+status.slice(2)+" e3-"+e3status}>{result}</div></React.Fragment>
+			}	
 		}
 		//ITEMS
 		else if(status[1]==='I'){
@@ -360,7 +344,7 @@ class Block_Filter extends React.PureComponent {
 			
 			//filter - price low to high
 			if(sort==="1"){
-				let arr = itemsArr.sort((a, b)=> {
+				arr = itemsArr.sort((a, b)=> {
 					if (a.cost > b.cost) {
 						return 1;
 					}
@@ -369,15 +353,11 @@ class Block_Filter extends React.PureComponent {
 					}
 					return 0;		
 				});
-				
-				
-				for(let i=0;i<arr.length;i++){
-					result.push(<Position_Items key={arr[i].key}  data={arr[i]}/>);
-				}
+		
 			}
 			//filter - price high to low
 			else if(sort==="2"){
-				let arr = itemsArr.sort((a, b)=> {
+				arr = itemsArr.sort((a, b)=> {
 					if (a.cost > b.cost) {
 						return -1;
 					}
@@ -386,13 +366,11 @@ class Block_Filter extends React.PureComponent {
 					}
 					return 0;		
 				});
-				for(let i=0;i<arr.length;i++){
-					result.push(<Position_Items key={arr[i].key}  data={arr[i]}/>);
-				}
+
 			}
 			//filter - filter a-z
 			else if(sort==="3"){
-				let arr = itemsArr.sort((a, b)=> {
+				arr = itemsArr.sort((a, b)=> {
 					if (a.codeName.toLowerCase().trim() > b.codeName.toLowerCase().trim()) {
 						return 1;
 					}
@@ -401,13 +379,11 @@ class Block_Filter extends React.PureComponent {
 					}
 					return 0;		
 				});
-				for(let i=0;i<arr.length;i++){
-					result.push(<Position_Items key={arr[i].key}  data={arr[i]}/>);
-				}
+		
 			}
 			//filter - filter z-a
 			else if(sort==="4"){
-				let arr = itemsArr.sort((a, b)=> {
+				arr = itemsArr.sort((a, b)=> {
 					if (a.codeName.toLowerCase().trim() > b.codeName.toLowerCase().trim()) {
 						return -1;
 					}
@@ -416,15 +392,45 @@ class Block_Filter extends React.PureComponent {
 					}
 					return 0;		
 				});
-				for(let i=0;i<arr.length;i++){
-					result.push(<Position_Items key={arr[i].key}  data={arr[i]}/>);
-				}
+		
 			}
-			return <React.Fragment>{this._blockButtons(status.slice(2))}<div className={"content"+status.slice(2)+" e3-"+e3status}>{result}</div></React.Fragment>
+		
 		}
 		else if(status[0]==='s'){
 			return <Spiner status={status}/>
 		}
+		if(status[1]==='I'||status[1]==='H'||status[1]==='N'){
+			return <React.Fragment>{this._blockButtons(status.slice(2))}<div className={"content"+status.slice(2)+" e3-"+e3status}>
+					<WindowScroller>
+						{({ height, isScrolling, onChildScroll, scrollTop }) => (
+						<List
+							autoHeight
+							width={this.state.width}
+							height={height}
+							isScrolling={isScrolling}
+							onScroll={onChildScroll}
+
+							rowCount={arr.length}
+							rowHeight={60}
+							rowRenderer={(obj)=>{
+								return(
+									<div key={obj.index} style={obj.style}>
+										{status[1]==='I'&&<Position_Items key={arr[obj.index].key}  data={arr[obj.index]}/>}
+										{status[1]==='H'&&<Position_Heroes key={arr[obj.index].key}  data={arr[obj.index]}/>}
+										{status[1]==='N'&&<Position_News key={arr[obj.index].key}  data={arr[obj.index]}/>}
+									</div>
+								)
+							}}
+
+							scrollTop={scrollTop}
+							
+						/>
+						)}
+					</WindowScroller>
+				</div>
+			</React.Fragment>
+		}
+		
 	}
 
 	_blockButtons=(e)=>{
@@ -474,6 +480,9 @@ class Block_Filter extends React.PureComponent {
 				</div>
 			</React.Fragment>
 	};
+	onResize = (e1,e2) => {
+		this.setState({width:e1, height:e2})
+	};
 	componentDidUpdate(prevProps, prevState){
 		let {status,curBtn2} = this.state;
 		let {LoadedN,LoadedH,LoadedI} = this.props;
@@ -512,7 +521,7 @@ class Block_Filter extends React.PureComponent {
 				<div className="BlockContent">
 					{this._contentRender()}
 				</div>
-				
+				<ReactResizeDetector handleWidth handleHeight onResize={this.onResize} />
 			</div>
 		);
   	}
