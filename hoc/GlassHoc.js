@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './GlassHoc.scss';
 export const  GlassHoc = (BaseComponent) => {
     class GlassHoc extends React.Component {
        
@@ -8,7 +8,8 @@ export const  GlassHoc = (BaseComponent) => {
             return <React.Fragment>
                 {/* Обернутый компонент */}
                 {/* css pointer-events none */}
-                <div style={{backgroundColor:"rgba(1,1,1,0.5"}}><BaseComponent {...this.props}/></div>
+
+                <div className='GlassHoc'></div><BaseComponent {...this.props}/>
             </React.Fragment>
         }
     }

@@ -3,7 +3,7 @@ import React from 'react';
 
 import './Page_Content.scss';
 
-
+import {GlassHoc} from '../hoc/GlassHoc';
 import Block_Filter from '../02_components/Block_Filter';
 import {ModalHoc} from '../hoc/ModalHoc';
 import {connect} from "react-redux";
@@ -25,7 +25,7 @@ class Page_Content extends React.PureComponent {
 			
 			<div className="Page_Content container">
 				<div className="row">
-					<div className="col-12 img"><img src="./04_images/Logo2.png"/></div>
+					<div className="col-12 img"><img src="./04_images/Logo2.png"/><div className="fakeImg"></div></div>
 					<div className="col-12">
 						<Modal/>
 						
@@ -38,5 +38,6 @@ class Page_Content extends React.PureComponent {
   	}
 }
 
+
 export default connect((state) => ({}),
-{modalClose})(Page_Content);
+{modalClose})(GlassHoc(Page_Content));

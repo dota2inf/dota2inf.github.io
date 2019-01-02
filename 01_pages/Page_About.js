@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from "react-redux";
 import {modalClose} from "../redux/actions";
-
+import {GlassHoc} from '../hoc/GlassHoc';
 import './Page_About.scss';
 
 
@@ -77,5 +77,6 @@ class Page_About extends React.PureComponent {
 		);
   	}
 }
+
 export default connect((state) => ({}),
-{modalClose})(Page_About);
+{modalClose})(GlassHoc(Page_About));
