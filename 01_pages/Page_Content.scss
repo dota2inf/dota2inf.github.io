@@ -3,32 +3,39 @@
 	.img{
 		margin: 20px;
 		padding: 90px;
-		>img{
-			padding-right: 62px;
-			width: 100%;
-			max-width: 700px;
+		@include respond-down(sm){
+			padding: 30px;
+		}
+		@include respond-down(xs){
+			margin: 0;
+			padding: 10px;
+		}
+		>div{
 			margin: 0 auto;
 			display: block;
-		}
-		.fakeImg{
-			width: 0;
-		
+			>img{
+				width: 100%;
+				max-width: 700px;
+				margin: 0 auto;
+				display: block;
+			}
+			@include respond-down(xl){
+				min-height: 130px;
+			}
 			@include respond-down(lg){
-				height: 120px;
+				min-height: 130px;
 			}
 			@include respond-down(md){
-				height: 100px;
-				border: 1px dashed green;
+				min-height: 130px;
 			}
 			@include respond-down(sm){
-				height: 100px;
-				border: 1px dashed white;
+				min-height: 130px;
 			}
 			@include respond-down(xs){
-				height: 100px;
-				border: 1px dashed yellow;
+				min-height: 80px;
 			}
 		}
+		
 	}
 
 	.out > .NewsFrame > div{

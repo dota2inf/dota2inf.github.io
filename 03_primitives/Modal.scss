@@ -75,10 +75,14 @@
                 cursor: pointer;
                 text-align: center;
                 .cross{
-                    
+                    fill: #f0493b;
                 }
                 .text{
-                    color:black;
+                    color:#f0493b;
+                }
+                transition:all 500ms ease;
+                &:hover{
+                    transform: scale(1.1);
                 }
               
             }
