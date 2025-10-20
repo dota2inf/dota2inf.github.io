@@ -1,4 +1,6 @@
+
 //special
+
 @keyframes s-in {
     0% {
         opacity: 0; 
@@ -11,6 +13,7 @@
         opacity: 1;
     }
 }
+
 @keyframes s-out {
     0% {
         opacity: 1; 
@@ -23,7 +26,9 @@
         opacity: 0;
     }
 }
+
 //special 2
+
 @keyframes s2-in {
     0% {
         box-sizing: border-box;
@@ -46,7 +51,9 @@
         opacity: 0;
     }
 }
-//opcaity
+
+// opacity
+
 @keyframes o-in {
     0% {
         opacity: 0;
@@ -63,7 +70,9 @@
         opacity: 0;
     }
 }
-//animagion
+
+// animation on
+
 @keyframes a-in {
     0% {
         opacity: 0; 
@@ -75,6 +84,7 @@
         transform: scale(1) translate(0%, 0%);
     }
 }
+
 @keyframes a-out {
     0% {
         opacity: 1; 
@@ -88,8 +98,7 @@
 }
 
 
-///////////////////
-//buttons animation
+// buttons animation
 
 @keyframes neon {
 	from {
