@@ -1,0 +1,97 @@
+.component_DropdownSelect {
+  position: relative;
+  width: 80px;
+
+  &_button {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 1px 5px 0 5px;
+
+    cursor: pointer;
+
+    &:hover {
+      animation: neon 1.5s ease-in-out infinite alternate;
+    }
+
+    @media (max-width: $breakpoint-s) {
+      padding: 0 5px 0 5px;
+      height: 28px;
+    }
+    @media (max-width: $breakpoint-xs) {
+      padding: 0 5px 0 5px;
+      height: 17px;
+    }
+  }
+
+  &_text1 {
+    font-size: 12px;
+    font-weight: 400;
+    color: $white;
+
+    @media (max-width: $breakpoint-s) {
+      font-size: 8px;
+    }
+    @media (max-width: $breakpoint-xs) {
+      display: none;
+    }
+  }
+  &_text2 {
+    font-size: 14px;
+    font-weight: 400;
+    color: $white;
+    @media (max-width: $breakpoint-s) {
+      font-size: 10px;
+    }
+    @media (max-width: $breakpoint-xs) {
+      font-size: 10px;
+    }
+  }
+
+  &_arrow {
+    margin-left: auto;
+    transition: transform 0.2s ease;
+  }
+
+  &_open {
+    transform: rotate(180deg);
+  }
+
+  &_menu {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    width: 100%;
+    z-index: 10;
+  }
+
+  &_listItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $white;
+    padding: 5px 5px;
+    cursor: pointer;
+    @media (max-width: $breakpoint-s) {
+      font-size: 10px;
+    }
+    @media (max-width: $breakpoint-xs) {
+      font-size: 10px;
+    }
+     &:hover {
+      animation: neon 1.5s ease-in-out infinite alternate;
+    }
+  }
+
+  &_selected {
+    font-weight: 900 !important;
+  }
+
+  &_checkmark {
+    & * {
+      fill: $white;
+    }
+  }
+}

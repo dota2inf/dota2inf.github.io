@@ -1,0 +1,16 @@
+.component-Dropdown {
+  &_wrapper {
+    position: relative;
+    display: inline-block;
+  }
+  &_button {
+    cursor: pointer;
+  }
+  &_content {
+    & > * {
+      position: absolute;
+      z-index: 1;
+      left: 0;
+    }
+  }
+}

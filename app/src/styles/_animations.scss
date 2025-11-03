@@ -1,0 +1,38 @@
+
+// animationIn
+
+@keyframes animationIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+// buttons animation
+
+@keyframes neon {
+  from {
+    text-shadow:
+      0 0 5px #fff,
+      0 0 7px #fff,
+      0 0 12px #fff,
+      0 0 20px #ff9900,
+      0 0 25px #ff9900,
+      0 0 30px #ff9900,
+      0 0 40px #ff9900,
+      0 0 50px #ff9900;
+  }
+  to {
+    text-shadow:
+      0 0 2px #fff,
+      0 0 5px #fff,
+      0 0 7px #fff,
+      0 0 12px #ff9900,
+      0 0 20px #ff9900,
+      0 0 25px #ff9900,
+      0 0 30px #ff9900,
+      0 0 40px #ff9900;
+  }
+}

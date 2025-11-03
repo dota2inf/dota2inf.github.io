@@ -1,0 +1,28 @@
+.modal_TestModal {
+  &_loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 500px;
+  }
+
+  &_topBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    & svg {
+      margin: 10px;
+      cursor: pointer;
+    }
+  }
+
+  &_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 21px;
+    padding: 0 25px 40px;
+    min-height: 100%;
+    padding: 20px 20px 0;
+  }
+}

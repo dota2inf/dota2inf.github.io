@@ -1,0 +1,49 @@
+.page_Patches {
+  position: relative;
+  background: $background;
+  & > div {
+    background: $background;
+  }
+  &_loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    animation: animationIn 0.7s ease forwards;
+  }
+  &_content {
+    height: 100%;
+    
+    &-itemWrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: animationIn 0.5s ease forwards;
+    }
+    &-item {
+      color: $white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      height: 40px;
+      padding: 0 10px;
+      font-weight: 700;
+      font-size: 16px;
+      &:hover {
+        animation: neon 1.5s ease-in-out infinite alternate;
+      }
+
+      & > div:nth-child(1) {
+        width: 90px;
+      }
+      & > div:nth-child(2) {
+        width: 160px;
+      }
+    }
+    &-placeholder {
+      font-size: 12px;
+      padding-right: 5px;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+html,
+body {
+  overflow: auto !important;
+  height: 100%;
+}
+
+#root {
+  overflow: auto !important;
+}
+#root > * {
+  overflow: auto !important;
+}

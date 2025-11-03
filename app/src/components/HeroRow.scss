@@ -1,0 +1,41 @@
+.component_HeroRow {
+  cursor: pointer;
+  margin: 2px 20px;
+  display: flex;
+  align-items: center;
+  animation: animationIn 0.5s ease forwards;
+  color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  padding: 0 10px;
+  font-weight: 700;
+  font-size: 16px;
+  &:hover {
+    & span {
+      animation: neon 1.5s ease-in-out infinite alternate;
+    }
+  }
+
+  @media (min-width: $breakpoint-m) {
+    width: 900px;
+    margin: 2px auto;
+  }
+
+  &-leftBlock {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+
+  &-rightBlock {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+  &-image {
+    height: 50px;
+    width: 90px;
+  }
+}
