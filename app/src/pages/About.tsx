@@ -18,7 +18,7 @@ export const About = () => {
       topBlock={<ButtonsNavigate withHomeButton selectedIndex={3}  />}
       middleBlock={<div>
        
-        <a href="/storybook.html">Storybook</a>
+        <a href="https://dota2inf.github.io/app/storybook-static">Storybook</a>
         <div>vite</div>
         <div>eslint</div>
         <div>prettier</div>
