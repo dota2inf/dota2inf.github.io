@@ -1,0 +1,4 @@
+import{j as o}from"./jsx-runtime-D_zvdyIk.js";import"./index-D4lIrffr.js";import{c as m}from"./clsx-B-dksMZM.js";const r=({className:a,complexity:n})=>o.jsx("div",{className:m("component_HeroComplexity",a),children:n});r.__docgenInfo={description:"",methods:[],displayName:"HeroComplexity",props:{className:{required:!1,tsType:{name:"string"},description:""},complexity:{required:!1,tsType:{name:"number"},description:""}}};const l={title:"Components/HeroComplexity",component:r},e=()=>o.jsx("div",{style:{background:"black",padding:20},children:o.jsx(r,{})});e.__docgenInfo={description:"",methods:[],displayName:"Primary"};var s,t,i;e.parameters={...e.parameters,docs:{...(s=e.parameters)==null?void 0:s.docs,source:{originalSource:`() => <div style={{
+  background: 'black',
+  padding: 20
+}}><HeroComplexity /></div>`,...(i=(t=e.parameters)==null?void 0:t.docs)==null?void 0:i.source}}};const y=["Primary"];export{e as Primary,y as __namedExportsOrder,l as default};
