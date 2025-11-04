@@ -4,6 +4,7 @@ import "./HeroRow.scss";
 import type { Hero } from "store/types";
 import { useTranslation } from "react-i18next";
 import unknownImg from "../assets/heroes/unknown.png";
+import { HeroType } from "./HeroType";
 
 const rawImages = import.meta.glob("../assets/heroes/*.png", { eager: true });
 const heroImages: Record<string, string> = {};
@@ -49,7 +50,7 @@ export const HeroRow: FC<Props> = ({ className, hero }) => {
         <span>{hero?.name_loc}</span>
       </div>
       <div className="component_HeroRow-rightBlock">
-        <span>{t('type')}</span>
+        <span>{t('type')} <HeroType type={hero?.primary_attr} /> </span>
         <span>{t('complexity')}</span>
         
       </div>
