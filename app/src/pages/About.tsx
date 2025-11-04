@@ -17,7 +17,8 @@ export const About = () => {
       className="page_About"
       topBlock={<ButtonsNavigate withHomeButton selectedIndex={3}  />}
       middleBlock={<div>
-        
+       
+        <a href="/storybook.html">Storybook</a>
         <div>vite</div>
         <div>eslint</div>
         <div>prettier</div>
