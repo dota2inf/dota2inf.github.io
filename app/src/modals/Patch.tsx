@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import { WrapperModal } from "components/WrapperModal";
 import "./Patch.scss";
-import { SVG_Delete } from "svg/32/SVG_Delete";
+import { SVG_Delete } from "svg/SVG_Delete";
 
 import { SpinnerCircle } from "components/SpinnerCircle";
 import { useTranslation } from "react-i18next";

@@ -8,8 +8,6 @@ export default {
 export const Primary = () => {
 
   return (
-    <div style={{background: 'black', height: '200px'}}>
-      <DropdownSelectLanguages />
-    </div>
+    <DropdownSelectLanguages />
   );
 };

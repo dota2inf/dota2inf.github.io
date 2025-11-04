@@ -1,6 +1,6 @@
-## 1) FOR GIT PUSH go to - root
+## 1) before push - yarn build / yarn build-storybook
 
-## 2) FOR DEVELOPMENT go to - ./app - yarn live / yarn build / yarn storybook / yarn build-storybook
+## 2) don't forget to synchronize package.json (scripts) and app/package.json
 
 ## 3) node -v ---> v22.15.0
 

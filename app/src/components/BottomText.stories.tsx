@@ -5,5 +5,5 @@ export default {
   component: BottomText,
 };
 export const Primary = () => (
-  <div style={{background: 'black', padding: 20}}><BottomText /></div>
+  <BottomText />
 );

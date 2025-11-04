@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "live": "npm --prefix ./app run live",
+    "live-host": "npm --prefix ./app run live-host",
+    "build": "npm --prefix ./app run build",
+    "postbuild": "npm --prefix ./app run postbuild",
+    "lint": "npm --prefix ./app run lint",
+    "preview": "npm --prefix ./app run preview",
+    "storybook": "npm --prefix ./app run storybook",
+    "build-storybook": "npm --prefix ./app run build-storybook",
+    "prettier": "npm --prefix ./app run prettier"
+  }
+}

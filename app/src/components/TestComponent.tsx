@@ -1,7 +1,7 @@
 import { type FC } from "react";
 import "./TestComponent.scss";
 import imgEx from "assets/download.jpeg";
-import { SVG_Duplicate } from "svg/32/SVG_Duplicate";
+import { SVG_Delete } from "svg/SVG_Delete";
 import { useAppDispatch, useAppSelector } from "store/hooks";
 import { setData, setLoading, asyncFetchItems } from "store/reducers/test";
 import { openConfirm } from "utils/utils";
@@ -101,7 +101,7 @@ export const TestComponent: FC<Props> = () => {
       <hr />
       <h3>04 svg</h3>
       <div>
-        <SVG_Duplicate />
+        <SVG_Delete />
       </div>
     </div>
   );

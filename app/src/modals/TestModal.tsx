@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { WrapperModal } from "components/WrapperModal";
 import "./TestModal.scss";
-import { SVG_Delete } from "svg/32/SVG_Delete";
+import { SVG_Delete } from "svg/SVG_Delete";
 
 import { SpinnerCircle } from "components/SpinnerCircle";
 

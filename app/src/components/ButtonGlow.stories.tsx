@@ -5,5 +5,5 @@ export default {
   component: ButtonGlow,
 };
 export const Primary = () => (
-  <div style={{background: 'black', padding: 20}}><ButtonGlow title="click" /></div>
+  <ButtonGlow title="click" />
 );

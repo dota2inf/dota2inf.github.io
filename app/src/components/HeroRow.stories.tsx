@@ -5,8 +5,7 @@ export default {
   component: HeroRow,
 };
 export const Primary = () => (
-  <div style={{ background: "black", padding: 20 }}>
-    <HeroRow
+   <HeroRow
       hero={{
         complexity: 2,
         id: 21,
@@ -16,5 +15,4 @@ export const Primary = () => (
         primary_attr: 3,
       }}
     />
-  </div>
 );
