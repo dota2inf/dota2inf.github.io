@@ -1,14 +1,16 @@
-## 1) Test (for everything is fine) - yarn live / yarn build / yarn storybook / yarn build-storybook
+## 1) FOR GIT PUSH go to - root
 
-## 2) node -v ---> v22.15.0
+## 2) FOR DEVELOPMENT go to - ./app - yarn live / yarn build / yarn storybook / yarn build-storybook
 
-## 3) install packages ---> use yarn (install it globally) instead of npm
+## 3) node -v ---> v22.15.0
 
-## 4) how run - need to use lite-server or
+## 4) install packages ---> use yarn (install it globally) instead of npm
+
+## 5) how run - need to use lite-server or
     npx http-server ./
     npx http-server ./app/storybook-static
 
-## 5) [structure] components -> pages
+## 6) [structure] components -> pages
 
     assets - use it for storing files, images, fonts, PDFs, and more.
     components - basic components
@@ -20,9 +22,9 @@
     translate - translate file
     utils - utils functions
 
-## 6) classNames page_Main_regirtrationTitle-bold
+## 7) classNames page_Main_regirtrationTitle-bold
 
-## 7) imports added in 'vite.config.ts' 'tsconfig.json'
+## 8) imports added in 'vite.config.ts' 'tsconfig.json'
 
     used imports:
         "assets/*": ["assets/*"],
@@ -35,21 +37,21 @@
         "translate/*": ["translate/*"],
         "utils/*": ["utils/*"]
 
-## 8) router - ./src/router.tsx
+## 9) router - ./src/router.tsx
 
-## 9) modals - to set modal use -> const openModal = useModal(); / openModal(ConfirmEmail, {mail: signMail,password: signPass});
+## 10) modals - to set modal use -> const openModal = useModal(); / openModal(ConfirmEmail, {mail: signMail,password: signPass});
 
-## 10) confirm openConfirm(({ close }) => (<div onClick={() => close()} />));
+## 11) confirm openConfirm(({ close }) => (<div onClick={() => close()} />));
 
 
-## 11)  Languages
+## 12)  Languages
         -) languages to go to utils/i18n.ts (two places)
         -) lang file located in ./translate/
         -) to switch language use - customChangeLanguage
 
-## 12) URL for request - use cloudflare worker service to fix CORS error 
+## 13) URL for request - use cloudflare worker service to fix CORS error 
 
-## 13)  REQUESTS
+## 14)  REQUESTS
 
       // Item List (MOCKED)
       // https://www.dota2.com/datafeed/itemlist?language=english

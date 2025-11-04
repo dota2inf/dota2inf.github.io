@@ -3,6 +3,7 @@ import type { StorybookConfig } from "@storybook/react-vite";
 const config: StorybookConfig = {
   stories: ["../src/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: [
+    'storybook-dark-mode',
     "@storybook/addon-essentials",
     "@storybook/addon-onboarding",
     "@chromatic-com/storybook",
@@ -12,12 +13,5 @@ const config: StorybookConfig = {
     name: "@storybook/react-vite",
     options: {},
   },
-
-  viteFinal: async (config) => {
-    config.build = config.build || {};
-    config.build.outDir = "../";
-    return config;
-  },
 };
-
 export default config;
