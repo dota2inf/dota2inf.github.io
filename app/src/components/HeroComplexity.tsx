@@ -1,6 +1,7 @@
 import { type FC } from "react";
 import { clsx } from "clsx";
 import "./HeroComplexity.scss";
+import { SVG_Star } from "svg/SVG_Star";
 
 
 interface Props {
@@ -14,7 +15,7 @@ export const HeroComplexity: FC<Props> = ({ className, complexity }) => {
     <div
       className={clsx("component_HeroComplexity", className)}
     >
-      {complexity}
+      <span>{complexity}</span> <SVG_Star />
     </div>
   );
 };

@@ -1,48 +1,44 @@
 import { useState, useEffect } from "react";
 
 import { WrapperModal } from "components/WrapperModal";
-import "./Patch.scss";
+import "./Hero.scss";
 import { SVG_Delete } from "svg/SVG_Delete";
 
 import { SpinnerCircle } from "components/SpinnerCircle";
 import { useTranslation } from "react-i18next";
-import { useAppDispatch, useGetPatch } from "store/hooks";
-import { asyncGetPatch } from "store/reducers/patches";
-import { formatTimestamp } from "utils/utils";
+import { useAppDispatch, useGetHero } from "store/hooks";
+import { asyncGetHero } from "store/reducers/heroes";
 
 
 type Props = {
   onClose?: (result: boolean | null) => void;
-  patchNumber: string;
-  date: number;
+  id: string;
+
 };
 
-export const Patch = ({ onClose, patchNumber, date }: Props) => {
+export const Hero = ({ onClose, id }: Props) => {
   const [isLoading, setLoading] = useState(false);
   const dispatch = useAppDispatch();
-   const patch = useGetPatch();
-   console.log('--+ @ - patch', patch);
+  const hero = useGetHero();
   const { t } = useTranslation();
-
+  console.log('--+ - @ HERO', hero);
   useEffect(() => {
     const request = async () => {
       setLoading(true);
-      await dispatch(asyncGetPatch(patchNumber));
+      await dispatch(asyncGetHero(id));
       setLoading(false);
     };
     request();
-  }, [dispatch, patchNumber]);
+  }, [dispatch, id]);
 
   return (
-    <div className="modal_Patch">
+    <div className="modal_Hero">
       <WrapperModal
         topBlock={
-          <div className="modal_Patch_topBar">
-            <div className="modal_Patch_topBar-title">
-              <div>{t("patch")}</div>
-              <div>{patchNumber}</div>
-           
-              <div>{`(${formatTimestamp(date)})`}</div>
+          <div className="modal_Hero_topBar">
+            <div className="modal_Hero_topBar-title">
+              <div></div>
+  
             </div>
             <SVG_Delete
               className="no_select"
@@ -54,11 +50,11 @@ export const Patch = ({ onClose, patchNumber, date }: Props) => {
         }
         middleBlock={
           isLoading ? (
-            <div className="modal_Patch_loading">
+            <div className="modal_Hero_loading">
               <SpinnerCircle />
             </div>
           ) : (
-            <div className="modal_Patch_content">
+            <div className="modal_Hero_content">
               <div>{t('heroesChanges')}</div>
               <div></div>
               <div>{t('itemsChanges')}</div>

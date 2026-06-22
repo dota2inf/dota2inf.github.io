@@ -4,7 +4,7 @@ import {
   useSelector,
 } from "react-redux";
 import { type RootState, type AppDispatch } from "./store";
-import type { Heroes, Patches } from "./types";
+import type { Heroes, HeroFull, Patches, PatchFull } from "./types";
 
 
 export const useAppDispatch = () => useDispatch<AppDispatch>();
@@ -22,6 +22,17 @@ export const useGetHeroes = () => {
   const heroes: Heroes = useAppSelector((state) => state.heroes).heroes;
   return heroes;
 };
+
+export const useGetPatch = () => {
+  const patch: PatchFull = useAppSelector((state) => state.patches.patch);
+  return patch;
+};
+
+export const useGetHero = () => {
+  const hero: HeroFull = useAppSelector((state) => state.heroes.hero);
+  return hero;
+};
+
 
 export const useGetPatchHeroesChanges = () => {
   const heroes: string[] = useAppSelector((state) => state.patches).patch.heroes;

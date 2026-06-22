@@ -33,6 +33,11 @@
     display: flex;
     gap: 15px;
     align-items: center;
+    & > span {
+      @media (max-width: $breakpoint-m)  {
+        display: none;
+      }
+    }
   }
   &-image {
     height: 50px;

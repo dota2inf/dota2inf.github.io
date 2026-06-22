@@ -8,12 +8,14 @@ import { asyncGetHeroes } from "store/reducers/heroes";
 import { useAppDispatch, useGetHeroes } from "store/hooks";
 import { useLangChanged } from "utils/i18n";
 import { SpinnerCircle } from "components/SpinnerCircle";
-
+import { useModal } from "modals/Modal";
 
 import "./Heroes.scss";
 import { HeroRow } from "components/HeroRow";
+import { Hero } from "modals/Hero";
 
 export const Heroes = () => {
+  const openModal = useModal();
   const dispatch = useAppDispatch();
   const lang = useLangChanged();
   const heroes = useGetHeroes();
@@ -52,7 +54,7 @@ export const Heroes = () => {
                       const hero = heroesArray[index];
                       return (
                         <div key={hero.name} style={style}>
-                          <HeroRow key={hero.name} hero={hero} />
+                          <HeroRow onClick={() => openModal(Hero, {id: hero.id})} key={hero.name} hero={hero} />
                         </div>
                       );
                     }}

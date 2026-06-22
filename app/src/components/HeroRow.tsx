@@ -13,6 +13,7 @@ const heroImages: Record<string, string> = {};
 interface Props {
   className?: string;
   hero?: Hero;
+  onClick?: () => void;
 }
 
 Object.entries(rawImages).forEach(([key, value]) => {
@@ -29,17 +30,17 @@ function useImageWithFallback(src: string, fallback: string) {
 
   return { imgSrc, handleError };
 }
-export const HeroRow: FC<Props> = ({ className, hero }) => {
+export const HeroRow: FC<Props> = ({ className, hero, onClick }) => {
   const heroImageName = hero?.name.split("_").slice(3).join("_") || "";
   const cdnSrc = `https://cdn.steamstatic.com/apps/dota2/images/dota_react/heroes/${heroImageName}.png`;
   const localSrc = heroImages[heroImageName] || unknownImg;
   const { imgSrc, handleError } = useImageWithFallback(cdnSrc, localSrc);
   const { t } = useTranslation();
-  console.log('--+ hero', hero);
+  console.log("--+ hero", hero);
   return (
     <div
       className={clsx("component_HeroRow", className)}
-      onClick={() => console.log("--+ OpenModal")}
+      onClick={onClick}
     >
       <div className="component_HeroRow-leftBlock">
         <img
@@ -51,9 +52,9 @@ export const HeroRow: FC<Props> = ({ className, hero }) => {
         <span>{hero?.name_loc}</span>
       </div>
       <div className="component_HeroRow-rightBlock">
-        <span>{t('type')} <HeroType type={hero?.primary_attr} /> </span>
-        <span>{t('complexity')} <HeroComplexity complexity={hero?.complexity} /></span>
-        
+        <span>{t("type")}</span> <HeroType type={hero?.primary_attr} />
+        <span>{t("complexity")}</span>
+        <HeroComplexity complexity={hero?.complexity} />
       </div>
     </div>
   );

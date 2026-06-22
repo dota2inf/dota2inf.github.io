@@ -19,10 +19,10 @@ export const HeroType: FC<Props> = ({ className, type }) => {
       return <img src={strImg} />;
     }
     if (type === 1) {
-      return <img src={intImg} />;
+      return <img src={agiImg} />;
     }
     if (type === 2) {
-      return <img src={agiImg} />;
+      return <img src={intImg} />;
     }
     if (type === 3) {
       return <img src={uniImg} />;

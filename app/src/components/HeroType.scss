@@ -1,4 +1,7 @@
 .component_HeroType {
-   display: inline;
-   
+   display: flex;
+   & > img {
+      width: 25px;
+      height: 25px;
+   }
 }
